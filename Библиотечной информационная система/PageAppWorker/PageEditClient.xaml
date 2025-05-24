@@ -1,0 +1,37 @@
+﻿<Page x:Class="Библиотечной_информационная_система.PageAppWorker.PageEditClient"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Библиотечной_информационная_система.PageAppWorker"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageEditClient">
+
+    <Grid>
+        <StackPanel >
+            
+            <Label Content="Роль"/>
+            <TextBox Text="{Binding id_role}"/>
+            <Label Content="id Чит.билета"/>
+            <TextBox Text="{Binding id_library_card}"/>
+            <Label Content="Имя"/>
+            <TextBox Text="{Binding Name}"/>
+            <Label Content="Фамилия"/>
+            <TextBox Text="{Binding Surname}"/>
+            <Label Content="Отчество"/>
+            <TextBox Text="{Binding Patronymic}"/>
+            <Label Content="Логин"/>
+            <TextBox Text="{Binding login}"/>
+            <Label Content="Пароль"/>
+            <TextBox Text="{Binding password}"/>
+            <Label Content="Группа"/>
+            <TextBox Text="{Binding Group_student.Name}"/>
+            <Label Content="Не Удален\Удален"/>
+            <TextBox Text="{Binding IsDelete}"/>
+
+
+            <Button Content="Сохранить изменения" Click="CliventSave"/>
+        </StackPanel>
+    </Grid>
+</Page>

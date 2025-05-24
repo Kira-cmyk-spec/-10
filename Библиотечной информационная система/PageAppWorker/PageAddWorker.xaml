@@ -1,0 +1,42 @@
+﻿<Page x:Class="Библиотечной_информационная_система.PageAppWorker.PageAddWorker"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Библиотечной_информационная_система.PageAppWorker"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageAddWorker">
+
+    <Grid>
+        <StackPanel>
+            <Label Content="id Работника"/>
+            <ComboBox ItemsSource="{Binding animals}" x:Name="tov">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock >
+<Run Text="{Binding id}" />
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+           
+            <Label Content="Имя "/>
+            <TextBox x:Name="NameTextBox" TextWrapping="Wrap"/>
+            <Label Content="Фамилия "/>
+            <TextBox  x:Name="SurNameTextBox" />
+            <Label Content="Отчество"/>
+            <TextBox x:Name="PatronymicTextBox" TextWrapping="Wrap"/>
+            <Label Content="Логин"/>
+            <TextBox x:Name="loginTextBox" />
+            <Label Content="пароль"/>
+            <TextBox x:Name="passwordTextBox" TextWrapping="Wrap"/>
+         
+
+
+
+            <Button Content="Добавить Работника" Click="CLEventAddNewProd"/>
+        </StackPanel>
+    </Grid>
+</Page>

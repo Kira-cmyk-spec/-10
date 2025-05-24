@@ -1,0 +1,124 @@
+﻿<Page x:Class="Библиотечной_информационная_система.PageAppWorker.PageLibraryShow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Библиотечной_информационная_система.PageAppWorker"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageLibraryShow">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Frame Grid.Column="1" Grid.Row="1" />
+        <ScrollViewer Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
+            <StackPanel >
+
+                <TextBlock x:Name="label1" Foreground="White"/>
+
+                <ListView Grid.Column="3"
+    Grid.Row="1"
+    Grid.RowSpan="4" 
+    Grid.ColumnSpan="6"
+    x:Name="ListInfo"
+  
+    ItemsSource="{Binding libraryCard_Clients}">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn Header="Фамилия"
+                          Width="50">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Client.Surname}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Автор"
+   Width="50">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Author.Name}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Книга"
+   Width="50">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Book.books}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Дата Издания"
+   Width="50">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Book.date_of_publication}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Код нахождения"
+                                    Width="50">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Library_Card.id_location}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="№ журн., тома, вып., части"
+Width="50">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Library_Card.part_number}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Дата оформления"
+Width="50">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Library_Card.date_redister, StringFormat=dd.MM.yyyy}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Дата окончания"
+Width="50">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Library_Card.date_register_end, StringFormat=dd.MM.yyyy}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+
+
+                </ListView>
+                <Label Content="Поиск по Фамилии"/>
+                <TextBox x:Name="Group_TextBox" Width="200" Margin="5 -20 5 0  " TextChanged="Group_TextBox_TextChanged"/>
+            </StackPanel>
+        </ScrollViewer>
+        <ComboBox Grid.Column="3" 
+           Margin="10"
+           ItemsSource="{Binding Discipline}"
+           x:Name="Gropscombo"
+           SelectionChanged="Gropscombo_SelectionChanged">
+            <DataTemplate>
+                <StackPanel>
+                    <TextBlock Text="{Binding discipline}"/>
+                </StackPanel>
+            </DataTemplate>
+        </ComboBox>
+    </Grid>
+</Page>

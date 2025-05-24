@@ -1,0 +1,45 @@
+﻿<Page x:Class="Библиотечной_информационная_система.PageApp.PageLibraryCard"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Библиотечной_информационная_система.PageApp"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageLibraryCard">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition />
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Frame Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="20"/>
+       
+        <Label Content="Фамилия" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
+        <Label Content="Автор (Ф.И.О.)" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
+        <Label Content="Название" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
+        <Label Content="Год издания" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
+        <Label Content="Дата оформления" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
+        <Label Content="№ журн., тома, вып., части " Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"/>
+        <Button Content="Оформить" Grid.Column="0" Grid.Row="6" x:Name="design" Click="design_Click" Margin="10" FontSize="24"/>
+        <TextBox Height="30" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" x:Name="author" Margin="10"/>
+        <TextBox Height="30" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" x:Name="namebook" Margin="10"/>
+        <TextBox Height="30" Grid.Column="1" Grid.Row="4"  x:Name="year" Margin="10"/>
+        <TextBox Height="30" Grid.Column="3" Grid.Row="4"  x:Name="Number" Margin="10"/>
+        <TextBlock x:Name="DateTextBlock" FontSize="24" Grid.Column="1" Grid.Row="5" Margin="10"/>
+        <TextBox x:Name="SurNameTextBlock" FontSize="24" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Margin="10"/>
+
+    </Grid>
+</Page>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="45a17c0255e84057ab22f0615ad62abf" Name="Diagram1">
+        <EntityTypeShape EntityType="LibraryModel.Author" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LibraryModel.Author_book" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LibraryModel.Book" Width="1.5" PointX="3" PointY="13.125" />
+        <EntityTypeShape EntityType="LibraryModel.Client" Width="1.5" PointX="3" PointY="3.875" />
+        <EntityTypeShape EntityType="LibraryModel.Date_of_publication" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LibraryModel.Discipline" Width="1.5" PointX="0.75" PointY="12.5" />
+        <EntityTypeShape EntityType="LibraryModel.Group_student" Width="1.5" PointX="0.75" PointY="1.875" />
+        <EntityTypeShape EntityType="LibraryModel.Library_Card" Width="1.5" PointX="5.25" PointY="3.875" />
+        <EntityTypeShape EntityType="LibraryModel.LibraryCard_Client" Width="1.5" PointX="7.5" PointY="4.5" />
+        <EntityTypeShape EntityType="LibraryModel.location" Width="1.5" PointX="0.75" PointY="14.875" />
+        <EntityTypeShape EntityType="LibraryModel.Publishing_house" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LibraryModel.Rent" Width="1.5" PointX="7.5" PointY="7.625" />
+        <EntityTypeShape EntityType="LibraryModel.Role" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="LibraryModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="3.75" />
+        <EntityTypeShape EntityType="LibraryModel.Worker" Width="1.5" PointX="3" PointY="8.5" />
+        <AssociationConnector Association="LibraryModel.FK_Book_Discipline" />
+        <AssociationConnector Association="LibraryModel.FK_Book_location" />
+        <AssociationConnector Association="LibraryModel.FK_Library_Card_Book" />
+        <AssociationConnector Association="LibraryModel.FK_LibraryCard_Client_Book" />
+        <AssociationConnector Association="LibraryModel.FK_Client_Group_student" />
+        <AssociationConnector Association="LibraryModel.FK_Client_Role" />
+        <AssociationConnector Association="LibraryModel.FK_Library_Card_Client" />
+        <AssociationConnector Association="LibraryModel.FK_LibraryCard_Client_Client" />
+        <AssociationConnector Association="LibraryModel.FK_Library_Card_location" />
+        <AssociationConnector Association="LibraryModel.FK_LibraryCard_Client_Library_Card" />
+        <AssociationConnector Association="LibraryModel.FK_Rent_Library_Card" />
+        <AssociationConnector Association="LibraryModel.FK_Rent_Worker" />
+        <AssociationConnector Association="LibraryModel.FK_Worker_Role" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

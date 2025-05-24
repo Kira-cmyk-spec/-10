@@ -1,0 +1,40 @@
+﻿<Page x:Class="Библиотечной_информационная_система.PageAppWorker.PageAddBook"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Библиотечной_информационная_система.PageAppWorker"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageAddBook">
+
+    <Grid>
+        <StackPanel>
+            
+             <Label Content="Название Книги "/>
+            <TextBox x:Name="bookTextBox" TextWrapping="Wrap"/>
+            <Label Content="Год издания "/>
+            <TextBox  x:Name="dataTextBox" />
+            <Label Content="Автор"/>
+            <TextBox x:Name="AuthorTextBox" TextWrapping="Wrap"/>
+            <Label Content="Дисциплина"/>
+            <ComboBox x:Name="disciplinComboBox"
+                      ItemsSource="{Binding disciplines}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding discipline1}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+           
+            <Label Content="Стеллаж"/>
+            <TextBox x:Name="RackTextBox" TextWrapping="Wrap"/>
+            <Label Content="Полка"/>
+            <TextBox x:Name="ShelftextBox" TextWrapping="Wrap"/>
+
+
+
+            <Button Content="Добавить Заявку" Click="CLEventAddNewProd"/>
+        </StackPanel>
+    </Grid>
+</Page>
