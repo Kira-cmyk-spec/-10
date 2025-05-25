@@ -14,6 +14,6 @@ namespace Библиотечной_информационная_система
     /// </summary>
     public partial class App : Application
     {
-        public static LibraryEntities2 Connetction = new LibraryEntities2();
+        public static Library_941Entities Connetction = new Library_941Entities();
     }
 }

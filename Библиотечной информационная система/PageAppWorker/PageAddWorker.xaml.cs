@@ -36,7 +36,7 @@ namespace Библиотечной_информационная_система.P
             Group_student group_Student = new Group_student();
             var _cat = tov.SelectedItem as Group_student;
 
-            if (NameTextBox != null && SurNameTextBox != null && PatronymicTextBox != null && passwordTextBox != null && loginTextBox != null && GroupComboBox != null)
+            if (NameTextBox != null && SurNameTextBox != null && PatronymicTextBox != null && passwordTextBox != null && loginTextBox != null && tov != null)
             {
                 worker.Name = NameTextBox.ToString();
                 worker.Surname = SurNameTextBox.ToString();
@@ -47,9 +47,9 @@ namespace Библиотечной_информационная_система.P
                 worker.IsDelete = true;
                 group_Student.Name = _cat.ToString();
 
-                BdConnection.libraryEntities1.Discipline.Add(worker);
-                BdConnection.libraryEntities1.Discipline.Add(group_Student);
-                BdConnection.libraryEntities1.SaveChanges();
+                BdConnection.libraryEntities.Discipline.Add(worker);
+                BdConnection.libraryEntities.Discipline.Add(group_Student);
+                BdConnection.libraryEntities.SaveChanges();
                 MessageBox.Show("Добавления произошло успешно");
 
 

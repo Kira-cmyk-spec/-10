@@ -15,10 +15,10 @@ namespace Библиотечной_информационная_система.D
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class LibraryEntities2 : DbContext
+    public partial class Library_941Entities : DbContext
     {
-        public LibraryEntities2()
-            : base("name=LibraryEntities2")
+        public Library_941Entities()
+            : base("name=Library_941Entities")
         {
         }
     
@@ -35,7 +35,6 @@ namespace Библиотечной_информационная_система.D
         public virtual DbSet<Discipline> Discipline { get; set; }
         public virtual DbSet<Group_student> Group_student { get; set; }
         public virtual DbSet<Library_Card> Library_Card { get; set; }
-        public virtual DbSet<LibraryCard_Client> LibraryCard_Client { get; set; }
         public virtual DbSet<location> location { get; set; }
         public virtual DbSet<Publishing_house> Publishing_house { get; set; }
         public virtual DbSet<Rent> Rent { get; set; }

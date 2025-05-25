@@ -27,8 +27,7 @@
             <TextBox Text="{Binding password}"/>
             <Label Content="Группа"/>
             <TextBox Text="{Binding Group_student.Name}"/>
-            <Label Content="Не Удален\Удален"/>
-            <TextBox Text="{Binding IsDelete}"/>
+         
 
 
             <Button Content="Сохранить изменения" Click="CliventSave"/>

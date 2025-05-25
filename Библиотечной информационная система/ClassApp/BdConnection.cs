@@ -9,6 +9,6 @@ namespace Библиотечной_информационная_система.C
 {
     public class BdConnection
     {
-        public static LibraryEntities2 libraryEntities1 = new LibraryEntities2();
+        public static Library_941Entities libraryEntities = new Library_941Entities();
     }
 }

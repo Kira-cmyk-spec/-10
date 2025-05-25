@@ -35,23 +35,23 @@ namespace Библиотечной_информационная_система.P
         public PageEdit(Book book, Discipline discipline, location location, Date_of_publication date_Of_Publication)
         {
             InitializeComponent();
-            books = new List<Book>(BdConnection.libraryEntities1.Book.ToList());
-            locations = new List<location>(BdConnection.libraryEntities1.location.ToList());
-            disciplines = new List<Discipline>(BdConnection.libraryEntities1.Discipline.ToList());
-            //this.DataContext = App.Connetction.Book.Where(z => z.id == Class_Book.CorrBook.id).FirstOrDefault();
-            //this.DataContext = App.Connetction.Discipline.Where(z => z.id == Class_Discipline.Corrdiscipline.id).FirstOrDefault();
-            //this.DataContext = App.Connetction.location.Where(z => z.id == Class_location.Corrlocation.id).FirstOrDefault();
-            books1 = book;
-            location1 = location;
-            discipline1 = discipline;
-            Date_Of_Publication1 = date_Of_Publication;
-            NameTextBox.Text = books1.books;
-          
-            AuthorTextBox.Text = books1.Author;
-            RackTextBox.Text =Convert.ToInt32(location1.rack);
-            ShelfTextBox.Text = location1.sthelf;
-            DiscpiplineComboBox.SelectedItem = disciplines.FirstOrDefault(t => t.id == discipline1.id);
-            this.DataContext = this;
+            books = new List<Book>(BdConnection.libraryEntities.Book.ToList());
+            locations = new List<location>(BdConnection.libraryEntities.location.ToList());
+            disciplines = new List<Discipline>(BdConnection.libraryEntities.Discipline.ToList());
+            this.DataContext = App.Connetction.Book.Where(z => z.id == Class_Book.CorrBook.id).FirstOrDefault();
+            this.DataContext = App.Connetction.Discipline.Where(z => z.id == Class_Discipline.Corrdiscipline.id).FirstOrDefault();
+            this.DataContext = App.Connetction.location.Where(z => z.id == Class_location.Corrlocation.id).FirstOrDefault();
+            //books1 = book;
+            //location1 = location;
+            //discipline1 = discipline;
+            //Date_Of_Publication1 = date_Of_Publication;
+            //NameTextBox.Text = books1.books;
+
+            //AuthorTextBox.Text = books1.Author;
+            //RackTextBox.Text =location.rack;
+            //ShelfTextBox.Text = Convert.ToInt32(location1.sthelf);
+            //DiscpiplineComboBox.SelectedItem = disciplines.FirstOrDefault(t => t.id == discipline1.id);
+            //this.DataContext = this;
 
 
 
@@ -64,15 +64,15 @@ namespace Библиотечной_информационная_система.P
 
         private void CliventSave(object sender, RoutedEventArgs e)
         {
-            books1.books = NameTextBox.Text;
-            books1.Author = AuthorTextBox.Text;
-            location1.rack = Convert.ToInt32(RackTextBox.Text);
-            location1.sthelf = Convert.ToInt32(ShelfTextBox.Text);
+            //books1.books = NameTextBox.Text;
+            //books1.Author = AuthorTextBox.Text;
+            //location1.rack = Convert.ToInt32(RackTextBox.Text);
+            //location1.sthelf = Convert.ToInt32(ShelfTextBox.Text);
 
-            Date_Of_Publication1.date_of_publication1 = DateTextBox.Text;
+            //Date_Of_Publication1.date_of_publication1 = DateTextBox.Text;
         
-            DiscpiplineComboBox.SelectedItem = disciplines.FirstOrDefault(t => t.id == discipline1.id);
-            BdConnection.libraryEntities1.SaveChanges;
+            //DiscpiplineComboBox.SelectedItem = disciplines.FirstOrDefault(t => t.id == discipline1.id);
+            //BdConnection.libraryEntities1.SaveChanges;
             App.Connetction.SaveChanges();
             MessageBox.Show("Изменение произошло успешно ");
             NavigationService.Navigate(new PageAppWorker.PageShowBooksW());

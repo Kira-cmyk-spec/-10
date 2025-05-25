@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d5350bcfa5b3427ebc3861a7a0732b94" Name="Diagram1">
+        <EntityTypeShape EntityType="Library_941Model.Author" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Library_941Model.Author_book" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Library_941Model.Book" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Library_941Model.Client" Width="1.5" PointX="10.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Library_941Model.Date_of_publication" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Library_941Model.Discipline" Width="1.5" PointX="6" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Library_941Model.Group_student" Width="1.5" PointX="8.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Library_941Model.Library_Card" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Library_941Model.location" Width="1.5" PointX="8.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Library_941Model.Publishing_house" Width="1.5" PointX="9.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Library_941Model.Rent" Width="1.5" PointX="7.5" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Library_941Model.Role" Width="1.5" PointX="8.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Library_941Model.sysdiagrams" Width="1.5" PointX="2.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Library_941Model.Worker" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Library_941Model.FK_Book_Author" ManuallyRouted="false" />
+        <AssociationConnector Association="Library_941Model.FK_Library_Card_Author" ManuallyRouted="false" />
+        <AssociationConnector Association="Library_941Model.FK_Book_Date_of_publication" ManuallyRouted="false" />
+        <AssociationConnector Association="Library_941Model.FK_Library_Card_Book" ManuallyRouted="false" />
+        <AssociationConnector Association="Library_941Model.FK_location_Book" ManuallyRouted="false" />
+        <AssociationConnector Association="Library_941Model.FK_Client_Group_student" ManuallyRouted="false" />
+        <AssociationConnector Association="Library_941Model.FK_Client_Library_Card" ManuallyRouted="false" />
+        <AssociationConnector Association="Library_941Model.FK_Client_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="Library_941Model.FK_Library_Card_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="Library_941Model.FK_Library_Card_Date_of_publication" ManuallyRouted="false" />
+        <AssociationConnector Association="Library_941Model.FK_location_Date_of_publication" ManuallyRouted="false" />
+        <AssociationConnector Association="Library_941Model.FK_location_Discipline" ManuallyRouted="false" />
+        <AssociationConnector Association="Library_941Model.FK_Library_Card_location" ManuallyRouted="false" />
+        <AssociationConnector Association="Library_941Model.FK_Rent_Library_Card" ManuallyRouted="false" />
+        <AssociationConnector Association="Library_941Model.FK_Rent_Worker" ManuallyRouted="false" />
+        <AssociationConnector Association="Library_941Model.FK_Worker_Role" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

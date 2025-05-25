@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Библиотечной_информационная_система.ClassApp;
+using Библиотечной_информационная_система.DataBase;
 
 namespace Библиотечной_информационная_система.PageAppWorker
 {
@@ -21,6 +22,9 @@ namespace Библиотечной_информационная_система.P
     /// </summary>
     public partial class PageEditWorker : Page
     {
+        public static Worker worker = new Worker();
+
+        public static List<Worker> workers { get; set; }
         public PageEditWorker()
         {
             InitializeComponent();

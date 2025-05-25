@@ -35,58 +35,58 @@ namespace Библиотечной_информационная_система.P
 
         private void CLEventAddNewProd(object sender, RoutedEventArgs e)
         {
-            Client client = new Client();
-            Group_student group_Student = new Group_student();
-            var _cat = GroupComboBox.SelectedItem as Group_student;
+            //Client client = new Client();
+            //Group_student group_Student = new Group_student();
+            //var _cat = GroupComboBox.SelectedItem as Group_student;
 
-            if (NameTextBox != null && SurNameTextBox != null && PatronymicTextBox != null && passwordTextBox != null && loginTextBox != null && GroupComboBox != null)
-            {
-                client.Name = NameTextBox.ToString();
-                client.Surname = SurNameTextBox.ToString();
-                client.Patronymic = PatronymicTextBox.ToString();
-                client.password = passwordTextBox.ToString();
-                client.login = loginTextBox.ToString();
-                client.id_role = 1;
-                client.IsDelete = true;
-                group_Student.Name = _cat.ToString();
-            
-                BdConnection.libraryEntities1.Discipline.Add(client);
-                BdConnection.libraryEntities1.Discipline.Add(group_Student);
-                BdConnection.libraryEntities1.SaveChanges();
-                MessageBox.Show("Добавления произошло успешно");
-
-
-            }
-            //try
+            //if (NameTextBox != null && SurNameTextBox != null && PatronymicTextBox != null && passwordTextBox != null && loginTextBox != null && GroupComboBox != null)
             //{
-            //    var _cat = GroupComboBox.SelectedItem as Group_student;
-            //    Client client = new Client()
-            //    {
-            //        Name = NameTextBox.Text,
-            //        Surname = NameTextBox.Text,
-            //        Patronymic = NameTextBox.Text,
-            //        login = NameTextBox.Text,
-            //        password = NameTextBox.Text,
-            //        id_role = 1,
-            //        IsDelete = true
+            //    client.Name = NameTextBox.ToString();
+            //    client.Surname = SurNameTextBox.ToString();
+            //    client.Patronymic = PatronymicTextBox.ToString();
+            //    client.password = passwordTextBox.ToString();
+            //    client.login = loginTextBox.ToString();
+            //    client.id_role = 1;
+            //    client.IsDelete = true;
+            //    group_Student.Name = _cat.ToString();
 
-            //    };
-            //    Group_student group = new Group_student()
-            //    {
-            //        Name = _cat.ToString()
-
-            //    };
+            //    BdConnection.libraryEntities1.Discipline.Add(client);
+            //    BdConnection.libraryEntities1.Discipline.Add(group_Student);
+            //    BdConnection.libraryEntities1.SaveChanges();
+            //    MessageBox.Show("Добавления произошло успешно");
 
 
-            //    App.Connetction.Client.Add(client);
-            //    App.Connetction.Group_student.Add(group);
-
-
-
-            //    App.Connetction.SaveChanges();
-            //    MessageBox.Show("Добавление произошло  успешно ");
             //}
-            //catch (Exception ex) { MessageBox.Show(ex.Message); }
+            try
+            {
+                var _cat = GroupComboBox.SelectedItem as Group_student;
+                Client client = new Client()
+                {
+                    Name = NameTextBox.Text,
+                    Surname = NameTextBox.Text,
+                    Patronymic = NameTextBox.Text,
+                    login = NameTextBox.Text,
+                    password = NameTextBox.Text,
+                    id_role = 1,
+                    IsDelete = true
+
+                };
+                Group_student group = new Group_student()
+                {
+                    Name = _cat.ToString()
+
+                };
+
+
+                App.Connetction.Client.Add(client);
+                App.Connetction.Group_student.Add(group);
+
+
+
+                App.Connetction.SaveChanges();
+                MessageBox.Show("Добавление произошло  успешно ");
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

@@ -19,7 +19,7 @@
             <RowDefinition Height="3*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Frame Grid.Column="1" Grid.Row="1"  />
+      
         <ScrollViewer Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <StackPanel >
 
@@ -102,17 +102,7 @@ Width="50">
                 <TextBox x:Name="Group_TextBox" Width="200" Margin="5 -20 5 0  " TextChanged="Group_TextBox_TextChanged"/>
             </StackPanel>
         </ScrollViewer>
-        <ComboBox Grid.Column="3" 
-           Margin="10"
-           ItemsSource="{Binding Discipline}"
-           x:Name="Gropscombo"
-           SelectionChanged="Gropscombo_SelectionChanged">
-            <DataTemplate>
-                <StackPanel>
-                    <TextBlock Text="{Binding discipline}"/>
-                </StackPanel>
-            </DataTemplate>
-        </ComboBox>
+        
         <Button Content="редактировать" Click="navigateeditbook_Click" x:Name="navigateeditbook" Height="30" Width="100"/>
         <Button Content="Добавить" Click="navigateAddbook_Click" x:Name="navigateAddbook" Height="30" Width="100" HorizontalAlignment="Left" Margin="10"/>
         <Button Content="Удалить" Click="DeleteBook_Click" x:Name="DeleteBook" Height="30" Width="100" Grid.Column="1"/>

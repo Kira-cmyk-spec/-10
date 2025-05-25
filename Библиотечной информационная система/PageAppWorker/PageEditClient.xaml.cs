@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Библиотечной_информационная_система.ClassApp;
+using Библиотечной_информационная_система.DataBase;
 
 namespace Библиотечной_информационная_система.PageAppWorker
 {
@@ -21,6 +23,9 @@ namespace Библиотечной_информационная_система.P
     /// </summary>
     public partial class PageEditClient : Page
     {
+        public static Client client = new Client();
+    
+        public static List<Client> clients { get; set; }
         public PageEditClient()
         {
             InitializeComponent();

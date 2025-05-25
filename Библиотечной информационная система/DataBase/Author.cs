@@ -14,7 +14,19 @@ namespace Библиотечной_информационная_система.D
     
     public partial class Author
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Author()
+        {
+            this.Book = new HashSet<Book>();
+            this.Library_Card = new HashSet<Library_Card>();
+        }
+    
         public int id { get; set; }
         public string Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Book> Book { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Library_Card> Library_Card { get; set; }
     }
 }
