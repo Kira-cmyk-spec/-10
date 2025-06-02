@@ -17,28 +17,24 @@ namespace Библиотечной_информационная_система.D
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Library_Card()
         {
-            this.Client = new HashSet<Client>();
+            this.LibraryCard_Client = new HashSet<LibraryCard_Client>();
             this.Rent = new HashSet<Rent>();
         }
     
         public int id { get; set; }
         public int id_client { get; set; }
-        public int id_author { get; set; }
         public int id_book { get; set; }
-        public int id_date_of_publication { get; set; }
         public int id_location { get; set; }
         public Nullable<int> part_number { get; set; }
-        public System.DateTime date_redister { get; set; }
-        public System.DateTime date_register_end { get; set; }
+        public Nullable<System.DateTime> date_redister { get; set; }
+        public Nullable<System.DateTime> date_register_end { get; set; }
         public Nullable<bool> IsDelete { get; set; }
     
-        public virtual Author Author { get; set; }
         public virtual Book Book { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Client> Client { get; set; }
-        public virtual Client Client1 { get; set; }
-        public virtual Date_of_publication Date_of_publication { get; set; }
+        public virtual Client Client { get; set; }
         public virtual location location { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LibraryCard_Client> LibraryCard_Client { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rent> Rent { get; set; }
     }

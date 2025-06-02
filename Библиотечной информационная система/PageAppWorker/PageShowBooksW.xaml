@@ -19,7 +19,7 @@
             <RowDefinition Height="3*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-      
+        <Frame Grid.Column="1" Grid.Row="1"  />
         <ScrollViewer Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <StackPanel >
 
@@ -30,7 +30,7 @@
     Grid.RowSpan="4" 
     Grid.ColumnSpan="6"
     x:Name="ListInfo"
-    SelectionChanged="ListInfo_SelectionChanged"
+
     ItemsSource="{Binding books1}"
                           >
                     <ListView.View>
@@ -48,7 +48,7 @@
    Width="50">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <TextBlock Text="{Binding Author.Name}"/>
+                                            <TextBlock Text="{Binding Author}"/>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
@@ -102,9 +102,10 @@ Width="50">
                 <TextBox x:Name="Group_TextBox" Width="200" Margin="5 -20 5 0  " TextChanged="Group_TextBox_TextChanged"/>
             </StackPanel>
         </ScrollViewer>
-        
-        <Button Content="редактировать" Click="navigateeditbook_Click" x:Name="navigateeditbook" Height="30" Width="100"/>
+
+
         <Button Content="Добавить" Click="navigateAddbook_Click" x:Name="navigateAddbook" Height="30" Width="100" HorizontalAlignment="Left" Margin="10"/>
+        <Button Content="Изменить" Click="navigateEditBook_Click" x:Name="navigateEditBook" Height="30" Width="100" HorizontalAlignment="Center" Margin="10"/>
         <Button Content="Удалить" Click="DeleteBook_Click" x:Name="DeleteBook" Height="30" Width="100" Grid.Column="1"/>
     </Grid>
 </Page>

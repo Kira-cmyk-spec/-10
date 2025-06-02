@@ -11,24 +11,23 @@
     <Grid>
         <StackPanel >
             <Label Content="Название Книги "/>
-            <TextBox Text="{Binding Book.books}" x:Name="NameTextBox"/> 
+            <TextBox Text="{Binding Book.books}" x:Name="NameBooksTextBox"/> 
             <Label Content="Дисциплина"/>
-            <ComboBox x:Name="DiscpiplineComboBox"
-                      ItemsSource="{Binding disciplines}">
+            <ComboBox x:Name="DiscpiplineCMD">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding discipline}"/>
+                        <TextBlock Text="{Binding Discipline.discipline}"/>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
             <Label Content="Автор"/>
-            <TextBox Text="{Binding Author.Name}" x:Name="AuthorTextBox"/>
+            <TextBox Text="{Binding Author}" x:Name="AuthorTextBox"/>
             <Label Content="Стеллаж"/>
             <TextBox Text="{Binding location.rack}" x:Name="RackTextBox"/>
             <Label Content="Полка"/>
-            <TextBox Text="{Binding location.sthelf}" x:Name="ShelfTextBox"/>
+            <TextBox Text="{Binding location.sthelf}" x:Name="SthelfTextBox"/>
             <Label Content="Год издания "/>
-            <TextBox  Text="{Binding Date_of_publication.date_of_publication}" x:Name="DateTextBox"/>
+            <TextBox  Text="{Binding date_of_publication}" x:Name="DateTextBox"/>
 
             <Button Content="Сохранить изменения" Click="CliventSave"/>
         </StackPanel>

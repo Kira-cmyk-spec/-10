@@ -18,20 +18,22 @@ namespace Библиотечной_информационная_система.D
         public Book()
         {
             this.Library_Card = new HashSet<Library_Card>();
-            this.location = new HashSet<location>();
+            this.LibraryCard_Client = new HashSet<LibraryCard_Client>();
         }
     
         public int id { get; set; }
         public string books { get; set; }
-        public int id_author { get; set; }
-        public int id_date_of_publication { get; set; }
         public Nullable<bool> IsDelete { get; set; }
+        public int id_location { get; set; }
+        public string date_of_publication { get; set; }
+        public int id_discipline { get; set; }
+        public string Author { get; set; }
     
-        public virtual Author Author { get; set; }
-        public virtual Date_of_publication Date_of_publication { get; set; }
+        public virtual Discipline Discipline { get; set; }
+        public virtual location location { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Library_Card> Library_Card { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<location> location { get; set; }
+        public virtual ICollection<LibraryCard_Client> LibraryCard_Client { get; set; }
     }
 }

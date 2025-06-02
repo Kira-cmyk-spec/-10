@@ -20,15 +20,16 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Button Content="редактировать" Click="navigateeditbook_Click" x:Name="navigateeditbook" Height="30" Width="100"/>
-        <Button Content="Добавить" Click="navigateAddbook_Click" x:Name="navigateAddbook" Height="30" Width="100" HorizontalAlignment="Left" Margin="10"/>
-        <Button Content="Удалить" Click="DeleteBook_Click" x:Name="DeleteBook" Height="30" Width="100" Grid.Column="1"/>
-        <ScrollViewer  Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
+        <Button Content="Добавить" Click="navigateAddbook_Click" x:Name="navigateAddbook" Height="30" Width="100" HorizontalAlignment="Center" Margin="10"/>
+  
+
+
+        <ScrollViewer Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <StackPanel >
 
                 <TextBlock x:Name="label1" Foreground="White"/>
 
-                <ListView  x:Name="ListClient" >
+                <ListView  x:Name="ListClient" SelectionChanged="ListClient_SelectionChanged" >
 
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -65,7 +66,7 @@
                                     </TextBlock>
                                 </StackPanel>
                                 <StackPanel >
-                                    <Button Content="редактировать" x:Name="edit" Click="edit_Click"/>
+                               
                                     <Button Content="удалить" x:Name="Delete" Click="Delete_Click"/>
                                 </StackPanel>
                             </StackPanel>

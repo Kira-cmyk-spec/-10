@@ -40,30 +40,16 @@ namespace Библиотечной_информационная_система.P
 
             //ListInfo.ItemsSource = App.Connetction.LibraryCard_Client.ToList();
          
-            Books = new List<Book>(BdConnection.libraryEntities1.Book.Where(i => i.IsDelete == true).ToList());          
-            date_Of_Publications = new List<Date_of_publication>(BdConnection.libraryEntities1.Date_of_publication.ToList());           
-            clients = new List<Client>(BdConnection.libraryEntities1.Client.ToList());
-            libraryCard_Clients = new List<LibraryCard_Client>(BdConnection.libraryEntities1.LibraryCard_Client.ToList());
-            library_Cards = new List<Library_Card>(BdConnection.libraryEntities1.Library_Card.ToList());
-            locations = new List<location>(BdConnection.libraryEntities1.location.ToList());
-            disciplines = new List<Discipline>(BdConnection.libraryEntities1.Discipline.ToList());
+            Books = new List<Book>(BdConnection.libraryEntities.Book.Where(i => i.IsDelete == true).ToList());          
+            date_Of_Publications = new List<Date_of_publication>(BdConnection.libraryEntities.Date_of_publication.ToList());           
+            clients = new List<Client>(BdConnection.libraryEntities.Client.ToList());
+            libraryCard_Clients = new List<LibraryCard_Client>(BdConnection.libraryEntities.LibraryCard_Client.ToList());
+            library_Cards = new List<Library_Card>(BdConnection.libraryEntities.Library_Card.ToList());
+            locations = new List<location>(BdConnection.libraryEntities.location.ToList());
+            disciplines = new List<Discipline>(BdConnection.libraryEntities.Discipline.ToList());
             clients.Insert(0, new Client() { id = -1, Surname = "Вывести всех" }); //для обратного вывода списка от combobox
 
             this.DataContext = this;
-        }
-        private void edit_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new PageAppWorker.PageEdit());
-        }
-
-
-        private void Delete_Click(object sender, RoutedEventArgs e)
-        {
-            var ser = (sender as Button).DataContext as Book;
-            MessageBox.Show("Точно хотите удалить?");
-            ser.IsDelete = false;
-            BdConnection.libraryEntities1.SaveChanges();
-            ListInfo.ItemsSource = new List<Book>(BdConnection.libraryEntities1.Book.Where(i => i.IsDelete == true).ToList());
         }
 
 
@@ -71,24 +57,19 @@ namespace Библиотечной_информационная_система.P
         private void Group_TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             string filterText = Group_TextBox.Text.ToLower();
-            ListInfo.ItemsSource = BdConnection.libraryEntities1.LibraryCard_Client.Where(p => p.Client.Surname.ToLower().Contains(filterText)).ToList();
-           // ListInfo.ItemsSource = new ObservableCollection<Client>(filteredProducts);
+            ListInfo.ItemsSource = BdConnection.libraryEntities.LibraryCard_Client.Where(p => p.Client.Surname.ToLower().Contains(filterText)).ToList();
+   
         }
 
-     
+       
 
-        private void Gropscombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void deletelibrarybook_Click(object sender, RoutedEventArgs e)
         {
-            var grouosirt = Gropscombo.SelectedItem as Discipline;
-            if (grouosirt.id != -1)
-            {
-
-                ListInfo.ItemsSource = new List<Book>(BdConnection.libraryEntities1.Book.Where(i => i.id_discipline == grouosirt.id).ToList()); // филтрация по группам
-            }
-            else
-            {
-                ListInfo.ItemsSource = new List<location>(BdConnection.libraryEntities1.location.ToList());
-            }
+            var ser = (sender as Button).DataContext as Book;
+            MessageBox.Show("Точно хотите удалить?");
+            ser.IsDelete = false;
+            BdConnection.libraryEntities.SaveChanges();
+            ListInfo.ItemsSource = new List<Book>(BdConnection.libraryEntities.Book.Where(i => i.IsDelete == true).ToList());
         }
     }
 }

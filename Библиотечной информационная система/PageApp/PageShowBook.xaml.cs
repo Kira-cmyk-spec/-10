@@ -31,7 +31,7 @@ namespace Библиотечной_информационная_система.P
         {
             InitializeComponent();
             ListBooks.ItemsSource = App.Connetction.Book.ToList();
-            Books = new List<Book>(BdConnection.libraryEntities1.Book.Where(i => i.IsDelete == true).ToList());
+            Books = new List<Book>(BdConnection.libraryEntities.Book.Where(i => i.IsDelete == true).ToList());
             this.DataContext = this;
         }
         private void Group_TextBox_TextChanged(object sender, TextChangedEventArgs e)

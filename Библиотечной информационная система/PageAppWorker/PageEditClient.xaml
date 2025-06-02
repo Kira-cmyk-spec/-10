@@ -11,23 +11,37 @@
     <Grid>
         <StackPanel >
             
-            <Label Content="Роль"/>
-            <TextBox Text="{Binding id_role}"/>
+          
             <Label Content="id Чит.билета"/>
-            <TextBox Text="{Binding id_library_card}"/>
+            
+            <ComboBox x:Name="Library_card_idCMD">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding id_library_card}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
             <Label Content="Имя"/>
-            <TextBox Text="{Binding Name}"/>
+            <TextBox Text="{Binding Name}" x:Name="NameTextBox"/>
             <Label Content="Фамилия"/>
-            <TextBox Text="{Binding Surname}"/>
+            <TextBox Text="{Binding Surname}" x:Name="SurNameTextBox"/>
             <Label Content="Отчество"/>
-            <TextBox Text="{Binding Patronymic}"/>
+            <TextBox Text="{Binding Patronymic}" x:Name="PatronymicTextBox"/>
             <Label Content="Логин"/>
-            <TextBox Text="{Binding login}"/>
+            <TextBox Text="{Binding login}" x:Name="loginTextBox"/>
             <Label Content="Пароль"/>
-            <TextBox Text="{Binding password}"/>
+            <TextBox Text="{Binding password}" x:Name="passwordTextBox"/>
             <Label Content="Группа"/>
-            <TextBox Text="{Binding Group_student.Name}"/>
-         
+          
+            <ComboBox x:Name="GroupeCMD">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Group_student.Name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+
 
 
             <Button Content="Сохранить изменения" Click="CliventSave"/>

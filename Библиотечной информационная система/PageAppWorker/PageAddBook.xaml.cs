@@ -25,72 +25,45 @@ namespace Библиотечной_информационная_система.P
     public partial class PageAddBook : Page
     {
         public static List<Book> books { get; set; }
-        public ObservableCollection<Book> books1 { get; set; }
         public static List<Discipline> disciplines { get; set; }
      
         public static List<location> locations { get; set; }
    
-        public static List<Date_of_publication> date_Of_Publications { get; set; }
+      
         public PageAddBook()
         {
             InitializeComponent();
             disciplinComboBox.ItemsSource = App.Connetction.Discipline.ToList();
 
-            disciplines = new List<Discipline>(BdConnection.libraryEntities1.Discipline.ToList());
+            disciplines = new List<Discipline>(BdConnection.libraryEntities.Discipline.ToList());
+            books = new List<Book>(BdConnection.libraryEntities.Book.ToList());
+            locations = new List<location>(BdConnection.libraryEntities.location.ToList());
+          
             this.DataContext = this;
 
         }
 
         private void CLEventAddNewProd(object sender, RoutedEventArgs e)
         {
-            //Book book = new Book();
-            //location location = new location();
+          Book book = new Book();
+            Discipline discipline = new Discipline();
+            location location = new location();
+            book.books = bookTextBox.Text;
+            book.date_of_publication = dataTextBox.Text;
+            book.Author = AuthorTextBox.Text;
 
-            //if (bookTextBox != null && dataTextBox != null && date_Of_Publications != null &&AuthorTextBox != null && RackTextBox != null && ShelftextBox != null )
-            //{
-            //    book.books = bookTextBox.ToString();
-            //    book.date_of_publication = date_Of_Publications.ToString();
-            //    book.Author = AuthorTextBox.ToString();
-            //    book.IsDelete = true;
-            //    location.rack = Convert.ToInt32(RackTextBox);
-            //    location.sthelf = Convert.ToInt32(ShelftextBox);
-            //    BdConnection.libraryEntities1.Discipline.Add(book);
-            //    BdConnection.libraryEntities1.Discipline.Add(location);
-            //    BdConnection.libraryEntities1.SaveChanges();
-            //    MessageBox.Show("Добавления произошло успешно");
+            book.IsDelete = true;
+            discipline.discipline1 = (disciplinComboBox.SelectedItem as Discipline).discipline1;
+            location.rack = Convert.ToInt32(RackTextBox.Text);
+            location.sthelf = Convert.ToInt32(ShelftextBox.Text);
 
 
-            //}
-            try
-            {
-                var _cat = disciplinComboBox.SelectedItem as Discipline;
-
-                Book items = new Book()
-                {
-                    books = bookTextBox.Text,
-                    date_of_publication = dataTextBox.Text,
-                    Author = AuthorTextBox.Text,
-                    IsDelete = true
-
-                };
-
-                location location = new location()
-                {
-                    rack = Convert.ToInt32(RackTextBox),
-                    sthelf = Convert.ToInt32(ShelftextBox),
-
-                };
-
-
-                App.Connetction.Book.Add(items);
-                App.Connetction.location.Add(location);
-
-
-
-               App.Connetction.SaveChanges();
+            BdConnection.libraryEntities.Book.Add(book);
+            BdConnection.libraryEntities.Discipline.Add(discipline);
+            BdConnection.libraryEntities.location.Add(location);
+            BdConnection.libraryEntities.SaveChanges();
                 MessageBox.Show("Добавление произошло успешно ");
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+           
         }
     }
  }

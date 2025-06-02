@@ -32,13 +32,10 @@ namespace Библиотечной_информационная_система.P
         {
             InitializeComponent();
             ListClient.ItemsSource = App.Connetction.Client.ToList();
-            clients = new List<Client>(BdConnection.libraryEntities1.Client.Where(i => i.IsDelete == true).ToList());
+            clients = new List<Client>(BdConnection.libraryEntities.Client.Where(i => i.IsDelete == true).ToList());
             this.DataContext = this;
         }
-        private void edit_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new PageAppWorker.PageEditClient());
-        }
+     
 
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -46,8 +43,8 @@ namespace Библиотечной_информационная_система.P
             var ser = (sender as Button).DataContext as Client;
             MessageBox.Show("Точно хотите удалить?");
             ser.IsDelete = false;
-            BdConnection.libraryEntities1.SaveChanges();
-            ListClient.ItemsSource = new List<Client>(BdConnection.libraryEntities1.Client.Where(i => i.IsDelete == true).ToList());
+            BdConnection.libraryEntities.SaveChanges();
+            ListClient.ItemsSource = new List<Client>(BdConnection.libraryEntities.Client.Where(i => i.IsDelete == true).ToList());
         }
 
 
@@ -58,5 +55,25 @@ namespace Библиотечной_информационная_система.P
             var filteredProducts = clients.Where(p => p.Surname.ToLower().Contains(filterText)).ToList();
             ListClient.ItemsSource = new ObservableCollection<Client>(filteredProducts);
         }
+
+       
+
+        private void navigateAddbook_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+     
+
+        private void ListClient_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+              
+            var selectionClient = ListClient.SelectedItem as Client;
+            var selectiongroupe = ListClient.SelectedItem as Group_student;
+            var selectionlibrarycard = ListClient.SelectedItem as Library_Card;
+
+            NavigationService.Navigate(new PageAppWorker.PageEditClient(selectionClient, selectiongroupe, selectionlibrarycard));
+        
+    }
     }
 }

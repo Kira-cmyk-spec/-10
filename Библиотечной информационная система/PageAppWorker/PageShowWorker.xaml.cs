@@ -32,13 +32,10 @@ namespace Библиотечной_информационная_система.P
         {
             InitializeComponent();
             Listworker.ItemsSource = App.Connetction.Client.ToList();
-            workers = new List<Worker>(BdConnection.libraryEntities1.Worker.Where(i => i.IsDelete == true).ToList());
+            workers = new List<Worker>(BdConnection.libraryEntities.Worker.Where(i => i.IsDelete == true).ToList());
             this.DataContext = this;
         }
-        private void edit_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new PageAppWorker.PageEditWorker());
-        }
+     
 
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -46,8 +43,8 @@ namespace Библиотечной_информационная_система.P
             var ser = (sender as Button).DataContext as Client;
             MessageBox.Show("Точно хотите удалить?");
             ser.IsDelete = false;
-            BdConnection.libraryEntities1.SaveChanges();
-            Listworker.ItemsSource = new List<Client>(BdConnection.libraryEntities1.Client.Where(i => i.IsDelete == true).ToList());
+            BdConnection.libraryEntities.SaveChanges();
+            Listworker.ItemsSource = new List<Client>(BdConnection.libraryEntities.Client.Where(i => i.IsDelete == true).ToList());
         }
 
 
@@ -58,5 +55,20 @@ namespace Библиотечной_информационная_система.P
             var filteredProducts = workers.Where(p => p.Surname.ToLower().Contains(filterText)).ToList();
             Listworker.ItemsSource = new ObservableCollection<Worker>(filteredProducts);
         }
+
+        private void navigateAddbook_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+    
+
+        private void Listworker_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectionworker = Listworker.SelectedItem as Worker;
+            NavigationService.Navigate(new PageAppWorker.PageEditWorker(selectionworker));
+        }
+
+       
     }
 }

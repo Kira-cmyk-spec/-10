@@ -80,67 +80,70 @@
     <Compile Include="ClassApp\Class_User.cs" />
     <Compile Include="ClassApp\Class_Worker.cs" />
     <Compile Include="DataBase\Author.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model_1.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\Author_book.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model_1.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\Book.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model_1.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\Client.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model_1.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\Date_of_publication.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model_1.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\Discipline.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model_1.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\Group_student.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\LibraryCard_Client.cs">
+      <DependentUpon>Model_1.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\Library_Card.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model_1.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\location.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model_1.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataBase\Model4.Context.cs">
+    <Compile Include="DataBase\Model_1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model4.Context.tt</DependentUpon>
+      <DependentUpon>Model_1.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataBase\Model4.cs">
+    <Compile Include="DataBase\Model_1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model_1.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataBase\Model4.Designer.cs">
+    <Compile Include="DataBase\Model_1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model4.edmx</DependentUpon>
+      <DependentUpon>Model_1.edmx</DependentUpon>
     </Compile>
     <Compile Include="DataBase\Publishing_house.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model_1.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\Rent.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model_1.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\Role.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model_1.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model_1.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\sp_helpdiagrams_Result.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model_1.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\sysdiagrams.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model_1.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\Worker.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model_1.tt</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -277,12 +280,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="DataBase\Model4.edmx">
+    <EntityDeploy Include="DataBase\Model_1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model4.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model_1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DataBase\Model4.edmx.diagram">
-      <DependentUpon>Model4.edmx</DependentUpon>
+    <None Include="DataBase\Model_1.edmx.diagram">
+      <DependentUpon>Model_1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -299,17 +302,16 @@
   <ItemGroup>
     <Resource Include="Image\logo_KCK.jpg" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="DataBase\Model4.Context.tt">
+    <Content Include="DataBase\Model_1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model4.edmx</DependentUpon>
-      <LastGenOutput>Model4.Context.cs</LastGenOutput>
+      <DependentUpon>Model_1.edmx</DependentUpon>
+      <LastGenOutput>Model_1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DataBase\Model4.tt">
+    <Content Include="DataBase\Model_1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model4.edmx</DependentUpon>
-      <LastGenOutput>Model4.cs</LastGenOutput>
+      <DependentUpon>Model_1.edmx</DependentUpon>
+      <LastGenOutput>Model_1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

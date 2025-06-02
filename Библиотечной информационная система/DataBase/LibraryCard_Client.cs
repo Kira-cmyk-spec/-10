@@ -12,22 +12,15 @@ namespace Библиотечной_информационная_система.D
     using System;
     using System.Collections.Generic;
     
-    public partial class location
+    public partial class LibraryCard_Client
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public location()
-        {
-            this.Book = new HashSet<Book>();
-            this.Library_Card = new HashSet<Library_Card>();
-        }
-    
-        public int rack { get; set; }
-        public int sthelf { get; set; }
         public int id { get; set; }
+        public int id_library_card { get; set; }
+        public int id_Client { get; set; }
+        public int ID_BOOK { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Book> Book { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Library_Card> Library_Card { get; set; }
+        public virtual Book Book { get; set; }
+        public virtual Client Client { get; set; }
+        public virtual Library_Card Library_Card { get; set; }
     }
 }

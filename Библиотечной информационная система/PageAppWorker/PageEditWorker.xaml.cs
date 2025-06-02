@@ -22,17 +22,37 @@ namespace Библиотечной_информационная_система.P
     /// </summary>
     public partial class PageEditWorker : Page
     {
-        public static Worker worker = new Worker();
-
         public static List<Worker> workers { get; set; }
-        public PageEditWorker()
+
+        Worker worker = new Worker();
+        public PageEditWorker(Worker worker_)
         {
             InitializeComponent();
-            this.DataContext = App.Connetction.Worker.Where(z => z.id == Class_Worker.CorrWorker.id).FirstOrDefault();
+
+            workers = new List<Worker>(ClassApp.BdConnection.libraryEntities.Worker.ToList());
+
+            worker = worker_;
+          
+
+         
+            NameTextBox.Text = worker.Name;
+            SurNameTextBox.Text = worker.Surname;
+            PatronymicTextBox.Text = worker.Patronymic;
+            loginTextBox.Text = worker.Login;
+            passwordTextBox.Text = worker.Password;
+     
+
+
+            this.DataContext = this;
         }
 
         private void CliventSave(object sender, RoutedEventArgs e)
         {
+            worker.Name = NameTextBox.Text;
+            worker.Surname = SurNameTextBox.Text;
+            worker.Patronymic = PatronymicTextBox.Text;
+            worker.Login = loginTextBox.Text;
+            worker.Password = passwordTextBox.Text;
             App.Connetction.SaveChanges();
             MessageBox.Show("Изменение произошло успешно ");
         }

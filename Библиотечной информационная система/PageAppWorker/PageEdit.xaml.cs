@@ -23,56 +23,44 @@ namespace Библиотечной_информационная_система.P
     /// </summary>
     public partial class PageEdit : Page
     {
-        public static List<Book> books { get; set; }
-        public static Book books1 = new Book();
-        public static Discipline discipline1 = new Discipline();
-        public static location location1 = new location();
-        public static Date_of_publication Date_Of_Publication1 = new Date_of_publication();
-        public ObservableCollection<Book> books2 { get; set; }
+        public static List<Book> book_S { get; set; }
         public static List<Discipline> disciplines { get; set; }      
         public static List<location> locations { get; set; }
+        Book book = new Book();
+        Discipline disciplin_e = new Discipline();
+        location location = new location();
+       
    
-        public PageEdit(Book book, Discipline discipline, location location, Date_of_publication date_Of_Publication)
+        public PageEdit(Book book_, Discipline discipline_, location location_)
         {
             InitializeComponent();
-            books = new List<Book>(BdConnection.libraryEntities.Book.ToList());
-            locations = new List<location>(BdConnection.libraryEntities.location.ToList());
-            disciplines = new List<Discipline>(BdConnection.libraryEntities.Discipline.ToList());
-            this.DataContext = App.Connetction.Book.Where(z => z.id == Class_Book.CorrBook.id).FirstOrDefault();
-            this.DataContext = App.Connetction.Discipline.Where(z => z.id == Class_Discipline.Corrdiscipline.id).FirstOrDefault();
-            this.DataContext = App.Connetction.location.Where(z => z.id == Class_location.Corrlocation.id).FirstOrDefault();
-            //books1 = book;
-            //location1 = location;
-            //discipline1 = discipline;
-            //Date_Of_Publication1 = date_Of_Publication;
-            //NameTextBox.Text = books1.books;
+            book_S = new List<Book>(ClassApp.BdConnection.libraryEntities.Book.ToList());
+            disciplines = new List<Discipline>(ClassApp.BdConnection.libraryEntities.Discipline.ToList());
+            locations = new List<location>(ClassApp.BdConnection.libraryEntities.location.ToList());
 
-            //AuthorTextBox.Text = books1.Author;
-            //RackTextBox.Text =location.rack;
-            //ShelfTextBox.Text = Convert.ToInt32(location1.sthelf);
-            //DiscpiplineComboBox.SelectedItem = disciplines.FirstOrDefault(t => t.id == discipline1.id);
-            //this.DataContext = this;
+            book = book_;
+            disciplin_e = discipline_;
+            location = location_;
 
+            NameBooksTextBox.Text = book.books;
+            DiscpiplineCMD.SelectedItem = disciplines.FirstOrDefault(i => i.discipline1 == disciplin_e.discipline1);
+            AuthorTextBox.Text = book.Author;
+            RackTextBox.Text = location.rack.ToString();
+            SthelfTextBox.Text = location.sthelf.ToString();
+            DateTextBox.Text = book.date_of_publication;
 
-
-
-
-
-
+            DataContext = this;
 
         }
 
         private void CliventSave(object sender, RoutedEventArgs e)
         {
-            //books1.books = NameTextBox.Text;
-            //books1.Author = AuthorTextBox.Text;
-            //location1.rack = Convert.ToInt32(RackTextBox.Text);
-            //location1.sthelf = Convert.ToInt32(ShelfTextBox.Text);
-
-            //Date_Of_Publication1.date_of_publication1 = DateTextBox.Text;
-        
-            //DiscpiplineComboBox.SelectedItem = disciplines.FirstOrDefault(t => t.id == discipline1.id);
-            //BdConnection.libraryEntities1.SaveChanges;
+            book.books = NameBooksTextBox.Text;
+            disciplin_e.discipline1 = (DiscpiplineCMD.SelectedItem as Discipline).discipline1;
+            book.Author = AuthorTextBox.Text;
+            location.rack = Convert.ToInt32(RackTextBox.Text);
+            location.sthelf = Convert.ToInt32(SthelfTextBox.Text);
+            book.date_of_publication = DateTextBox.Text;
             App.Connetction.SaveChanges();
             MessageBox.Show("Изменение произошло успешно ");
             NavigationService.Navigate(new PageAppWorker.PageShowBooksW());

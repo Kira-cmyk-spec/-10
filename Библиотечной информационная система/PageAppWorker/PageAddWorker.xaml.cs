@@ -23,63 +23,33 @@ namespace Библиотечной_информационная_система.P
     /// </summary>
     public partial class PageAddWorker : Page
     {
-        public static List<Client> clients { get; set; }
-        public ObservableCollection<Client> clients1 { get; set; }
+        public static List<Worker> workers { get; set; }
+    
         public PageAddWorker()
         {
-            InitializeComponent();
+
+
+            workers = new List<Worker>(BdConnection.libraryEntities.Worker.ToList());
+         
+
+            this.DataContext = this;
         }
 
         private void CLEventAddNewProd(object sender, RoutedEventArgs e)
         {
             Worker worker = new Worker();
-            Group_student group_Student = new Group_student();
-            var _cat = tov.SelectedItem as Group_student;
 
-            if (NameTextBox != null && SurNameTextBox != null && PatronymicTextBox != null && passwordTextBox != null && loginTextBox != null && tov != null)
-            {
-                worker.Name = NameTextBox.ToString();
-                worker.Surname = SurNameTextBox.ToString();
-                worker.Patronymic = PatronymicTextBox.ToString();
-                worker.Password = passwordTextBox.ToString();
-                worker.Login = loginTextBox.ToString();
-                worker.id_role = 1;
-                worker.IsDelete = true;
-                group_Student.Name = _cat.ToString();
-
-                BdConnection.libraryEntities.Discipline.Add(worker);
-                BdConnection.libraryEntities.Discipline.Add(group_Student);
-                BdConnection.libraryEntities.SaveChanges();
-                MessageBox.Show("Добавления произошло успешно");
+            worker.Name = NameTextBox.Text;
+            worker.Surname = SurNameTextBox.Text;
+            worker.Patronymic = PatronymicTextBox.Text;
+            worker.Login = loginTextBox.Text;
+            worker.Password = passwordTextBox.Text;
+            
 
 
-            }
-            //try
-            //{
-
-            //    Client client = new Client()
-            //    {
-            //        Name = NameTextBox.Text,
-            //        Surname = SurNameTextBox.Text,
-            //        Patronymic = NameTextBox.Text,
-            //        login = NameTextBox.Text,
-            //        password = NameTextBox.Text,
-            //        id_role = 2,
-            //        IsDelete = true
-
-            //    };
-
-
-
-            //    App.Connetction.Client.Add(client);
-
-
-
-
-            //    App.Connetction.SaveChanges();
-            //    MessageBox.Show("Добавление произошло  успешно ");
-            //}
-            //catch (Exception ex) { MessageBox.Show(ex.Message); }
+            BdConnection.libraryEntities.Worker.Add(worker);
+            BdConnection.libraryEntities.SaveChanges();
+            MessageBox.Show("Добавление произошло успешно ");
         }
     }
 }

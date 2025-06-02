@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -25,68 +24,39 @@ namespace Библиотечной_информационная_система.P
     public partial class PageAddClient : Page
     {
         public static List<Client> clients { get; set; }
-        public ObservableCollection<Client> clients1 { get; set; }
+     
         public static List<Group_student> group_Students { get; set; }
  
         public PageAddClient()
         {
             InitializeComponent();
+            GroupComboBox.ItemsSource = App.Connetction.Group_student.ToList();
+
+            clients = new List<Client>(BdConnection.libraryEntities.Client.ToList());
+            group_Students = new List<Group_student>(BdConnection.libraryEntities.Group_student.ToList());
+            
+
+            this.DataContext = this;
         }
 
         private void CLEventAddNewProd(object sender, RoutedEventArgs e)
         {
-            //Client client = new Client();
-            //Group_student group_Student = new Group_student();
-            //var _cat = GroupComboBox.SelectedItem as Group_student;
+            Client client = new Client();
+            Group_student group_Student = new Group_student();
 
-            //if (NameTextBox != null && SurNameTextBox != null && PatronymicTextBox != null && passwordTextBox != null && loginTextBox != null && GroupComboBox != null)
-            //{
-            //    client.Name = NameTextBox.ToString();
-            //    client.Surname = SurNameTextBox.ToString();
-            //    client.Patronymic = PatronymicTextBox.ToString();
-            //    client.password = passwordTextBox.ToString();
-            //    client.login = loginTextBox.ToString();
-            //    client.id_role = 1;
-            //    client.IsDelete = true;
-            //    group_Student.Name = _cat.ToString();
-
-            //    BdConnection.libraryEntities1.Discipline.Add(client);
-            //    BdConnection.libraryEntities1.Discipline.Add(group_Student);
-            //    BdConnection.libraryEntities1.SaveChanges();
-            //    MessageBox.Show("Добавления произошло успешно");
+            client.Name = NameTextBox.Text;
+            client.Surname = SurNameTextBox.Text;
+            client.Patronymic = PatronymicTextBox.Text;
+            client.login = loginTextBox.Text;
+            client.password = passwordTextBox.Text;
+            group_Student.Name = (GroupComboBox.SelectedItem as Group_student).Name;
+      
 
 
-            //}
-            try
-            {
-                var _cat = GroupComboBox.SelectedItem as Group_student;
-                Client client = new Client()
-                {
-                    Name = NameTextBox.Text,
-                    Surname = NameTextBox.Text,
-                    Patronymic = NameTextBox.Text,
-                    login = NameTextBox.Text,
-                    password = NameTextBox.Text,
-                    id_role = 1,
-                    IsDelete = true
-
-                };
-                Group_student group = new Group_student()
-                {
-                    Name = _cat.ToString()
-
-                };
-
-
-                App.Connetction.Client.Add(client);
-                App.Connetction.Group_student.Add(group);
-
-
-
-                App.Connetction.SaveChanges();
-                MessageBox.Show("Добавление произошло  успешно ");
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            BdConnection.libraryEntities.Client.Add(client);
+            BdConnection.libraryEntities.Group_student.Add(group_Student);
+            BdConnection.libraryEntities.SaveChanges();
+            MessageBox.Show("Добавление произошло успешно ");
         }
     }
 }
